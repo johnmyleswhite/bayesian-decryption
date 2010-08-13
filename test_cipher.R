@@ -5,11 +5,8 @@ input.text <- scan('gettysburg.txt', what = 'character')
 decrypted.text <- tolower(input.text)
 encrypted.text <- apply.cipher.to.text(decrypted.text, caesar.cipher)
 
-number.of.passes <- 1
-number.of.iterations <- 100
-
 number.of.passes <- 100
-number.of.iterations <- 10000
+number.of.iterations <- 5000
 
 results <- data.frame()
 
@@ -17,7 +14,7 @@ for (pass in 1:number.of.passes)
 {
   cipher <- generate.random.cipher()
   
-  for (iteration in 1:number.of.iterations.times)
+  for (iteration in 1:number.of.iterations)
   { 
     log.probability <- log.probability.of.text(encrypted.text, cipher, probability.table)
     current.decrypted.text <- paste(apply.cipher.to.text(encrypted.text, cipher), collapse = ' ')

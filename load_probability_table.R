@@ -15,8 +15,8 @@ sql <- 'SELECT n_gram, probability FROM n_grams WHERE n = 1'
 
 result.set <- dbSendQuery(connection, sql)
 
-parcel.size <- 10000
-  
+parcel.size <- 100000
+
 data.parcel <- fetch(result.set, n = parcel.size)
 
 if (nrow(data.parcel) == 0)
